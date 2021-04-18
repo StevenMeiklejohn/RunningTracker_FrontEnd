@@ -1,0 +1,10 @@
+For deployment:
+
+In Root directectory;
+npm run build
+
+cd into build;
+cp index.html 200.html
+
+surge
+http://couch25gays.com/
