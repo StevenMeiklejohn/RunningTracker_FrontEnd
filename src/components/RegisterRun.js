@@ -81,13 +81,13 @@ const RegisterRun = ({runs, onCreate}) => {
         </div>
         <div className="formElement">
         <label for="distance">Distance</label>
-        <input type="number" placeholder="Distance" name="distance" 
+        <input type="number" step="0.01" placeholder="Distance" name="distance" 
             onChange={handleDistanceChange} value={stateRun.distance}/>
         </div>  
         <div className="formElement">
         <label for="date">Date</label>
         <DatePicker
-            // selected={date}
+            selected={stateRun.run_date}
             onChange={handleDatePickerChange} //only when value has changed
         />
         </div>
