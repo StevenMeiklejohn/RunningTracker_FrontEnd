@@ -1,4 +1,5 @@
 import React from 'react'
+import SingleRun from './SingleRun'
 
 const RunnerData = ({runs, selectedName}) => {
 
@@ -18,6 +19,15 @@ const RunnerData = ({runs, selectedName}) => {
         }
     }
 
+    let filteredByDate = [...filteredRuns];
+    filteredByDate.sort(function(el1, el2) {
+        let date1 = new Date(el1.run_date);
+        let date2 = new Date(el2.run_date);
+        if (date1 > date2) return 1;
+        if (date1 < date2) return -1;
+     })
+     console.log("filtered by date", filteredByDate)
+
     const totalNumberOfRuns = filteredRuns.length;
     let totalDistance = 0;
     console.log("filteredRuns", filteredRuns);
@@ -25,10 +35,11 @@ const RunnerData = ({runs, selectedName}) => {
         totalDistance += run["distance"];
     }
 
-    const runElements = filteredRuns.map((run) => {
+    const runElements = filteredByDate.map((run) => {
         let date = new Date(run.run_date);
         let dateString = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
-        return <p>Distance: {run.distance}    Date: {dateString}</p>
+        // return <p>Distance: {run.distance}    Date: {dateString}</p>
+        return <SingleRun distance={run.distance} date={dateString} id={run._id} />
     })
 
 
