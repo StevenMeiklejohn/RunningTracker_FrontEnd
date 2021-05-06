@@ -1,5 +1,8 @@
 For deployment:
 
+Front End.
+============
+
 In Root directectory;
 npm run build
 
@@ -8,3 +11,13 @@ cp index.html 200.html
 
 surge
 http://couch25gays.com/
+
+
+
+Back End.
+=========
+
+Make adjustments.
+Commit to github.
+Then;
+git push heroku master
